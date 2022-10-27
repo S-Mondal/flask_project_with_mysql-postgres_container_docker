@@ -22,6 +22,8 @@ services:
     image: flask_test:v1
     networks:
       - new_network
+    volumes:
+      - new_volume:/code
     ports:
       - 5000:5000
     build:
@@ -29,5 +31,7 @@ services:
       dockerfile: Dockerfile_flask
 
 
+volumes:
+  new_volume:
 networks:
   new_network: 

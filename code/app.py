@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 import psycopg2
 import mysql.connector
 
+app = Flask(__name__)
+
 def get_mysql_version():
 	try:
 		conn = mysql.connector.connect(host='mysql_test', user='root', password='123456')
@@ -11,8 +13,6 @@ def get_mysql_version():
 	except Exception as e:
 		print("Connection failed: ",e)
 		return None
-
-app = Flask(__name__)
 
 def get_postgres_version():
 	try:

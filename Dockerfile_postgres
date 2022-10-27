@@ -3,4 +3,3 @@ FROM postgres
 ENV POSTGRES_PASSWORD=souvik123
 ENV POSTGRES_DB=docker_db
 ENV POSTGRES_USER=souvik
-

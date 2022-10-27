@@ -1,0 +1,33 @@
+version: '3'
+services: 
+  mysql_test:
+    container_name: mysql_test
+    image: mysql
+    networks:
+      - new_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+
+  postgres_test:
+    container_name: postgres_test
+    image: postgres_test:v1
+    networks:
+      - new_network
+    build:
+      context: .
+      dockerfile: Dockerfile_postgres
+
+  flask_test:
+    container_name: flask_test
+    image: flask_test:v1
+    networks:
+      - new_network
+    ports:
+      - 5000:5000
+    build:
+      context: .
+      dockerfile: Dockerfile_flask
+
+
+networks:
+  new_network: 

@@ -4,7 +4,7 @@ import mysql.connector
 
 def get_mysql_version():
 	try:
-		conn = mysql.connector.connect(host='172.17.0.4', user='root', password='123456')
+		conn = mysql.connector.connect(host='mysql_test', user='root', password='123456')
 		db_Info = conn.get_server_info()
 		print(db_Info)
 		return db_Info
@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 def get_postgres_version():
 	try:
-		conn = psycopg2.connect("host=172.17.0.3 dbname=docker_db user=souvik password=souvik123")
+		conn = psycopg2.connect("host=postgres_test dbname=docker_db user=souvik password=souvik123")
 		cur = conn.cursor()
 		cur.execute('SELECT version()')
 		db_version = cur.fetchone()
